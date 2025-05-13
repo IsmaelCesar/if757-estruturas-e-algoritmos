@@ -7,12 +7,16 @@ typedef struct my_struct {
 } MyStruct;
 
 int main(){
-    MyStruct *m1 = malloc(sizeof(MyStruct));
+    MyStruct *s1 = malloc(50*sizeof(MyStruct));
 
-    m1->valor1 = 0;
-    m1->valor2 = 0;
+    s1[15].valor1 = 0;
+    s1[15].valor2 = 0;
 
-    printf("Valor 1: %d\n", m1->valor1);
-    printf("Valor 2: %d\n", m1->valor2);
+    printf("s1->valor1: %d\n", s1[15].valor1);
+    printf("s1->valor2: %d", s1[15].valor2);
+
+    for(int i = 0; i < 50; i++){
+        free(s1+i);
+    }
     return 0;
 }
